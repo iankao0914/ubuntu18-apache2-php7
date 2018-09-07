@@ -16,7 +16,8 @@ RUN apt-get update && \
     php-gd \
     php-snmp \
     php-ldap \
-    php-bcmath\
+    php-bcmath \
+    mysql-client \
     libxml2 \
     curl \
     openssl \
