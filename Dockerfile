@@ -4,7 +4,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 \
 RUN apt-get update && \
   apt-get install -y --no-install-recommends \
-		libapache2-mod-php7.2 \
+    libapache2-mod-php7.2 \
     locales \
     vim \
     ssh \
@@ -22,9 +22,14 @@ RUN apt-get update && \
     curl \
     openssl \
     ca-cacert \
+    net-tools \
+    iputils-ping \
+    traceroute \
     supervisor && \
   apt-get clean && \
   echo "set number" >> /etc/vimrc && \
+  echo "ServerName web-server" >> /etc/apache2/apache2.conf && \
+  mv /var/www/html/index.html /root/index.html.bak
   mkdir /var/run/sshd && \
   sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
   sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config && \
