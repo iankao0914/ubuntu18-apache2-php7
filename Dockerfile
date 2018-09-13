@@ -29,7 +29,7 @@ RUN apt-get update && \
   apt-get clean && \
   echo "set number" >> /etc/vimrc && \
   echo "ServerName web-server" >> /etc/apache2/apache2.conf && \
-  mv /var/www/html/index.html /root/index.html.bak
+  mv /var/www/html/index.html /root/index.html.bak && \
   mkdir /var/run/sshd && \
   sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
   sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config && \
